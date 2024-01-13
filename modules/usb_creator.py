@@ -44,7 +44,7 @@ if __name__ == "__main__":
     if localconfig["app_language"] == "":
         print("Please select a language first.")
     app = QApplication([])
-    window = uic.loadUi("../UI/anlamadim.ui")
+    window = uic.loadUi("../UI/lang.ui")
     window.show()
     app.exec_()
 
