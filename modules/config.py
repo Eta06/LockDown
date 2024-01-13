@@ -10,11 +10,11 @@ def readAppConfig():
         with open("appconfig.json", "w") as f:
             data = {
                 "app_name": "FastCode.Ninja LockDown",
-                "app_version": "1.0.0",
+                "app_version": "0.0.1",
                 "app_author": "Emir Tunahan Alim",
                 "app_author_email": "emrtnhalim@gmail.com",
                 "app_description": "Cross-platform multi-lingual screen locker app for computers and smart boards.",
-                "github_user": "https://github.com/eta06",
+                "github_user": "https://github.com/Eta06",
                 "github_repo": "https://github.com/Eta06/LockDown",
                 "app_license": "Apache License 2.0",
                 "app_license_url": "https://github.com/Eta06/LockDown/blob/main/LICENSE",
