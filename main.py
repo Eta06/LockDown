@@ -1,27 +1,26 @@
-from PyQt5 import uic, QtWidgets, QtGui, QtNetwork, QtCore
-from PyQt5.QtGui import QMovie, QTextOption
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtCore import Qt
+# Description: Main file for the LockDown project
+import webbrowser
+from flask import Flask, render_template, request
 from modules.config import readAppConfig, updateAppConfig
 
 
+app = Flask(__name__)
+appcfg = readAppConfig()
+language = appcfg["app_language"]
+version = appcfg["app_version"]
+
+
+@app.route("/")
+def index():
+    return render_template("html/index.html")
+
+
+@app.route("/status")
+def status():
+
+
+
 if __name__ == "__main__":
-    localconfig = readAppConfig()
-    if localconfig["app_language"] == "":
-        print("Please select a language first.")
-    app = QApplication([])
-    window = uic.loadUi("../UI/lang.ui")
-    label = window.findChild(QtWidgets.QLabel, "label")
-    comboBox = window.findChild(QtWidgets.QComboBox, "comboBox")
-
-    # Add language options with emojis to the combo box
-    comboBox.addItem("English 🇬🇧")
-    comboBox.addItem("Turkish 🇹🇷")
-    comboBox.addItem("Russian 🇷🇺")
-    comboBox.addItem("Spanish 🇪🇸")
-
-    # Update the label text for clarity
-    label.setText("Select your language:")
-
-    window.show()
-    app.exec_()
+    webbrowser.open("http://localhost:4900")
+    # On port already in use error che
+    app.run(port=4900, debug=True)
