@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LockDown - Language Selection</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function fadeGreetings() {
+          const h1 = document.querySelector('h1');
+          const greetings = ['Hello!', 'Merhaba!', 'Привет!', 'Hola!'];
+          let currentGreetingIndex = 0;
+
+          function fadeInOut() {
+            h1.textContent = greetings[currentGreetingIndex];
+            h1.style.opacity = 1;
+
+            setTimeout(() => {
+              h1.style.opacity = 0;
+              setTimeout(() => {
+                currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length;
+                fadeInOut();
+              }, 500);
+            }, 3000);
+          }
+
+          fadeInOut();
+        }
+
+        // on page load
+        document.addEventListener('DOMContentLoaded', () => {
+          fadeGreetings();
+        });
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        html {
+          height: 100%;
+        }
+        body{
+            animation: fadeIn 1s;
+            transition: opacity 1s;
+            background-color: rgba(21, 102, 192, 0.49);
+            margin: 0;
+        }
+        h1 {
+            transition: opacity 1s;
+            opacity: 0;
+            font-size: 40px;
+            font-family: 'Lucida Grande', Arial, sans-serif;
+            font-weight: bolder;
+            margin-top: 20px;
+        }
+        .header-div {
+            display: flex;  /* Align items horizontally */
+            justify-content: center;  /* Center them within the header */
+            align-items: center;  /* Center them vertically */
+            height: 20vh;
+            background-color: rgba(21, 102, 192, 0.22);
+            border-bottom: 5px solid black;
+        }
+
+        .main-logo {
+            margin-top: 0px;
+            margin-right: 20px;
+            height: 128px;
+            width: 128px;
+        }
+        h2 {
+            font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+            font-weight: bolder;
+            font-size: 50px;
+            margin-top: 0;
+            padding-top: 20px;
+            margin-bottom: 0;
+        }
+        .greeting-text{
+            margin: 0;
+            padding-top: 20px;
+        }
+        .footer-div {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(21, 102, 192, 0.09); /* Match header for consistency */
+            padding: 10px;
+        }
+
+        .version-text {
+            margin: 0;
+            color: #000000;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <div class="header-div">
+        <img class="main-logo" src="{{ url_for('static', filename='images/icon.png') }}" alt="LockDown" width="100" height="100">
+        <h2>LockDown</h2>
+    </div>
+    <div class="main-div">
+        <h1 class="greeting-text"></h1>
+    </div>
+    <div class="footer-div">
+        <p class="version-text">Version: {{ version }}</p>
+    </div>
+
+</center>
+</body>
+</html>

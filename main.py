@@ -8,19 +8,20 @@ app = Flask(__name__)
 appcfg = readAppConfig()
 language = appcfg["app_language"]
 version = appcfg["app_version"]
-
+author = appcfg["app_author"]
 
 @app.route("/")
 def index():
-    return render_template("html/index.html")
+    if language == "":
+        return render_template("language.html", version=version, language=language, author=author)
+    return render_template("index.html", version=version, language=language, author=author)
 
 
 @app.route("/status")
 def status():
-
+    return {"app": "LockDown", "status": "OK", "version": version, "language": language, "author": author}
 
 
 if __name__ == "__main__":
-    webbrowser.open("http://localhost:4900")
-    # On port already in use error che
-    app.run(port=4900, debug=True)
+    app.run(debug=True, port=4900)
+

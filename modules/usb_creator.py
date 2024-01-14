@@ -4,11 +4,6 @@ import os
 import time
 import json
 import psutil
-from PyQt5 import uic, QtWidgets, QtGui, QtNetwork, QtCore
-from PyQt5.QtGui import QMovie, QTextOption
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtCore import Qt
-from config import readAppConfig, updateAppConfig
 
 
 def getAllDrives():
@@ -31,6 +26,7 @@ def getAllDrives():
                     system_drives.append(part.mountpoint)
     return system_drives, usb_drives
 
+
 """
 while True:
     system_drives, usb_drives = getAllDrives()
@@ -38,14 +34,3 @@ while True:
     print("USB Drives:", usb_drives)
     time.sleep(1)
 """
-
-if __name__ == "__main__":
-    localconfig = readAppConfig()
-    if localconfig["app_language"] == "":
-        print("Please select a language first.")
-    app = QApplication([])
-    window = uic.loadUi("../UI/lang.ui")
-    window.show()
-    app.exec_()
-
-
