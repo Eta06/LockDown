@@ -1,3 +1,10 @@
 {
-  "welcome": "¡Bienvenido de nuevo!"
+  "welcome": "¡Bienvenido de nuevo!",
+  "version": "Versión: ",
+  "home": "Inicio",
+  "settings": "Configuración",
+  "modules": "Módulos",
+  "about": "Acerca de",
+  "contact": "Contacto",
+  "vibration": "Vibración"
 }

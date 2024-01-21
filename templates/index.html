@@ -119,24 +119,136 @@
             color: #FFFFFF
 
         }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            background-color: #FFFFFF;
+            width: 80%;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            border: 1px solid #ffffff;
+            border-bottom: none;
+            background-color: #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.4s;
+        }
+
+        .tab.active {
+            background-color: #f1f1f1;
+            border-top: 4px solid #F25D5D; /* Match accent color */
+            transition: 0.4s;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .footer-tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .footer-tab {
+            padding: 10px 10px;
+            border: none;
+            background-color: #f5f5f5;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 15px;
+            transition: 0.4s;
+        }
+
+        .footer-tab.active {
+            background-color: #fff;
+            border-bottom: 5px solid #F25D5D; /* Match accent color */
+            transition: 0.4s;
+        }
     </style>
 </head>
 <body>
 <center>
     <div class="header-div">
         <img class="main-logo" src="{{ url_for('static', filename='images/icon.png') }}" alt="LockDown">
-        <h2>LockDown - Web UI</h2>
+        <h2>LockDown Web UI</h2>
     </div>
 </center>
 <center class="main-screen">
-    <div class="main-div">
+        <div class="main-div">
+            <div class="tabs">
+                <div class="tab active" data-tab="home">{{ language_files.home }}</div>
+                <div class="tab" data-tab="modules">{{ language_files.modules }}</div>
+                <div class="tab" data-tab="settings">{{ language_files.settings }}</div>
+            </div>
 
-    </div>
-</center>
-<center>
-    <div class="footer-div">
-        <p class="version-text">Version: {{ version }}</p>
-    </div>
-</center>
+            <div class="tab-content active" id="home">
+                </div>
+            <div class="tab-content" id="modules">
+                </div>
+            <div class="tab-content" id="settings">
+                </div>
+        </div>
+    </center>
+    <center>
+        <div class="footer-div" style="right: -10px; left:-10px;">
+            <p class="version-text">{{ language_files.version }} {{ version }}</p>
+            <div class="footer-tabs">
+                <div class="footer-tab" data-tab="about">{{ language_files.about }}</div>
+                <!--- github icon button -->
+                <div class="footer-tab" data-tab="github" style="padding: 0; height: 38px; border-radius: 20px; background-color: transparent"><a href="https://github.com/Eta06" target="_blank">
+                    <img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub" width="38" height="38" style="filter: invert(100%)">
+                </a>
+                </div>
+                <div class="footer-tab" data-tab="contact">{{ language_files.contact }}</div>
+            </div>
+
+        </div>
+    </center>
+    <script>
+        function clearActiveTabs() {
+            tabs.forEach(tab => tab.classList.remove('active'));
+            footerTabs.forEach(footerTab => footerTab.classList.remove('active'));
+        }
+
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                clearActiveTabs();
+                tabs.forEach(tab => tab.classList.remove('active'));
+                tab.classList.add('active');
+                console.log(tab.dataset.tab);
+                navigator.vibrate([10, 30, 10]);
+                const tabId = tab.dataset.tab;
+                const tabContents = document.querySelectorAll('.tab-content');
+                tabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        const footerTabs = document.querySelectorAll('.footer-tab');
+        footerTabs.forEach(footerTab => {
+            footerTab.addEventListener('click', () => {
+                clearActiveTabs();
+                footerTabs.forEach(footerTab => footerTab.classList.remove('active'));
+                footerTab.classList.add('active');
+                console.log(footerTab.dataset.tab);
+                navigator.vibrate([10, 40, 10]);
+                const footerTabId = footerTab.dataset.tab;
+                const footerTabContents = document.querySelectorAll('.footer-tab-content');
+                footerTabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(footerTabId).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>

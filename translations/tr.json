@@ -1,3 +1,10 @@
 {
-  "welcome": "Yeniden hoşgeldin!"
+  "welcome": "Yeniden hoşgeldin!",
+  "version": "Versiyon: ",
+  "home": "Ana Sayfa",
+  "settings": "Ayarlar",
+  "modules": "Modüller",
+  "about": "Hakkında",
+  "contact": "İletişim",
+  "vibration": "Titreşim"
 }

@@ -35,7 +35,8 @@ def set_language():
 def index():
     if language == "":
         return render_template("language.html", version=version, language=language, author=author)
-    return render_template("index.html", version=version, language=language, author=author)
+    print(language_files)
+    return render_template("index.html", version=version, language=language, author=author, language_files=language_files)
 
 
 @app.route("/status")

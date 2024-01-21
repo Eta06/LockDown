@@ -1,3 +1,10 @@
 {
-  "welcome": "Welcome back!"
+  "welcome": "Welcome back!",
+  "version": "Version: ",
+  "home": "Home",
+  "settings": "Settings",
+  "modules": "Modules",
+  "about": "About",
+  "contact": "Contact",
+  "vibration": "Vibration"
 }
