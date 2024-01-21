@@ -6,6 +6,18 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
+        console.log('%c LockDown\n', 'font-weight: bold; font-size: 50px; color: red; text-shadow: 0px 3px 3px rgb(217,31,38), 0px 6px 6px rgb(226,91,14), 0px 9px 9px rgb(245,221,8), 0px 12px 12px rgb(5,148,68), 0px 15px 15px rgb(2,135,206), 0px 18px 18px rgb(4,77,145), 0px 21px 21px rgb(42,21,113)');
+        console.log('%c  Web UI\n', 'font-weight: bold; font-size: 50px; color: red; text-shadow: 0px 3px 3px rgb(217,31,38), 0px 6px 6px rgb(226,91,14), 0px 9px 9px rgb(245,221,8), 0px 12px 12px rgb(5,148,68), 0px 15px 15px rgb(2,135,206), 0px 18px 18px rgb(4,77,145), 0px 21px 21px rgb(42,21,113)');
+        console.error("============================================");
+        console.log('%c Version: {{ version }}\n', 'font-weight: bold; font-size: 20px');
+        console.log('%c Author: {{ author }}\n', 'font-weight: bold; font-size: 20px');
+        console.log('%c Language: {{ language }}\n', 'font-weight: bold; font-size: 20px');
+        console.warn(
+            "This is the web UI for LockDown.\n" +
+            "It is currently under development.\n" +
+            "Thank you for your patience."
+        );
+
         function fadeGreetings() {
           const h1 = document.querySelector('h1');
           const greetings = ['Hello!', 'Merhaba!', 'Привет!', 'Hola!'];
@@ -31,6 +43,14 @@
         document.addEventListener('DOMContentLoaded', () => {
           fadeGreetings();
         });
+
+        document.addEventListener("click", (event) => {
+            if (event.target.id === "submit-button") {
+                const mainScreen = document.querySelector(".main-screen");
+                mainScreen.style.animation = "fadeOut 1s";
+            }
+        });
+
     </script>
     <style>
         @keyframes fadeIn {
@@ -41,13 +61,24 @@
                 opacity: 1;
             }
         }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        .main-screen{
+            transition: opacity 1s;
+        }
         html {
           height: 100%;
-        }
-        body{
             animation: fadeIn 1s;
             transition: opacity 1s;
-            background-color: rgba(21, 102, 192, 0.49);
+        }
+        body{
+            background-color: #212121; /* Bold and Energetic background */
             margin: 0;
         }
         h1 {
@@ -56,6 +87,7 @@
             font-size: 40px;
             font-family: 'Lucida Grande', Arial, sans-serif;
             font-weight: bolder;
+            color: #FFFFFF; /* Bold and Energetic text */
             margin-top: 20px;
         }
         .header-div {
@@ -64,26 +96,26 @@
             align-items: center;  /* Center them vertically */
             height: 20vh;
             background-color: rgba(21, 102, 192, 0.22);
-            border-bottom: 5px solid black;
+            border-bottom: 5px solid #F25D5D; /* Bold and Energetic accent */
         }
-
         .main-logo {
-            margin-top: 0px;
+            margin-top: 0;
             margin-right: 20px;
-            height: 128px;
-            width: 128px;
+            height: 12vh;
+            width: auto;
         }
         h2 {
             font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
             font-weight: bolder;
             font-size: 50px;
             margin-top: 0;
-            padding-top: 20px;
             margin-bottom: 0;
+            color: #FFFFFF; /* Bold and Energetic text */
         }
         .greeting-text{
             margin: 0;
             padding-top: 20px;
+            color: #FFFFFF; /* Bold and Energetic text */
         }
         .footer-div {
             position: fixed;
@@ -96,24 +128,90 @@
 
         .version-text {
             margin: 0;
-            color: #000000;
+            color: #FFFFFF; /* Bold and Energetic text */
             font-size: 20px;
+            font-family: 'Lucida Grande', Arial, sans-serif;
         }
+        .select {
+            color: #FFFFFF; /* Bold and Energetic text */
+            font-size: 20px;
+            font-family: 'Lucida Grande', Arial, sans-serif;
+        }
+        #language-select {
+            width: 250px; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            font-size: 16px; /* Adjust font size as needed */
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px; /* Add spacing between elements */
+            background-color: #FFFFFF;
+            border-color: transparent;
+        }
+
+        #submit-button {
+            width: 250px; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            font-size: 25px; /* Adjust font size as needed */
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px; /* Add spacing between elements */
+            background-color: #F25D5D;
+            transition: 0.4s;
+            color: #FFFFFF
+
+        }
+        #submit-button:hover {
+            width: 250px; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            font-size: 25px; /* Adjust font size as needed */
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px; /* Add spacing between elements */
+            background-color: #7a3131;
+            transition: 0.4s;
+            color: #FFFFFF
+
+        }
+        /* Style the flag emoji within options */
+        #language-select option span.flag-icon {
+            margin-right: 5px; /* Add spacing between flag and text */
+        }
+        #language-select {
+        /* Add any additional styling you need for the select element here */
+    }
     </style>
 </head>
 <body>
 <center>
     <div class="header-div">
-        <img class="main-logo" src="{{ url_for('static', filename='images/icon.png') }}" alt="LockDown" width="100" height="100">
+        <img class="main-logo" src="{{ url_for('static', filename='images/icon.png') }}" alt="LockDown">
         <h2>LockDown</h2>
     </div>
+</center>
+<center class="main-screen">
     <div class="main-div">
         <h1 class="greeting-text"></h1>
+        <p class="select">
+            Please select your language to continue.
+        </p>
+        <form method="POST" action="/set_language">
+            <select id="language-select" name="language">
+                <option value="en"> English</option>
+                <option value="tr"> Turkish</option>
+                <option value="es"> Español</option>
+                <option value="ru"> Russian</option>
+            </select>
+            <br>
+            <button id="submit-button" type="submit">Continue</button>
+        </form>
     </div>
+</center>
+<center>
     <div class="footer-div">
         <p class="version-text">Version: {{ version }}</p>
     </div>
-
 </center>
 </body>
 </html>

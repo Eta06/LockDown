@@ -27,10 +27,8 @@ def getAllDrives():
     return system_drives, usb_drives
 
 
-"""
 while True:
     system_drives, usb_drives = getAllDrives()
     print("System Drives:", system_drives)
     print("USB Drives:", usb_drives)
     time.sleep(1)
-"""

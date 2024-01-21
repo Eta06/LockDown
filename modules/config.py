@@ -29,3 +29,16 @@ def updateAppConfig(key, value):
     data[key] = value
     with open("appconfig.json", "w") as f:
         json.dump(data, f, indent=4)
+
+
+def loadLanguageFiles(language):
+    if language == "":
+        print("Language is not selected!")
+        print("Loading default language file...")
+        with open("translations/en.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data
+    else:
+        with open("translations/" + language + ".json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data
