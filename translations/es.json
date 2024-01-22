@@ -8,5 +8,10 @@
   "contact": "Contacto",
   "vibration": "Vibración",
   "author": "Autor",
-  "language": "Idioma"
+  "language": "Idioma",
+  "infotext1": "Esta es la interfaz web de la aplicación LockDown.",
+  "infotext2": "La aplicación está actualmente en desarrollo.",
+  "infotext3": "Es posible que algunas funciones no funcionen como se esperaba.",
+  "infotext4": "No dude en informarnos de cualquier error que encuentre.",
+  "infotext5": "Gracias por su paciencia."
 }

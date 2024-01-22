@@ -8,5 +8,10 @@
   "contact": "İletişim",
   "vibration": "Titreşim",
   "author": "Yazar",
-  "language": "Dil"
+  "language": "Dil",
+  "infotext1": "Bu, LockDown uygulamasının web arayüzüdür.",
+  "infotext2": "Uygulama şu anda geliştirilme aşamasındadır.",
+  "infotext3": "Bazı özellikler beklendiği gibi çalışmayabilir.",
+  "infotext4": "Bulduğunuz hataları bildirmekten çekinmeyin.",
+  "infotext5": "Sabrınız için teşekkür ederiz."
 }

@@ -8,5 +8,10 @@
   "contact": "Contact",
   "vibration": "Vibration",
   "author": "Author",
-  "language": "Language"
+  "language": "Language",
+  "infotext1": "This is the web UI for LockDown App.",
+  "infotext2": "App is currently under development.",
+  "infotext3": "Some features may not work as expected.",
+  "infotext4": "Feel free to report any bugs you find.",
+  "infotext5": "Thank you for your patience."
 }
