@@ -6,5 +6,7 @@
   "modules": "Модули",
   "about": "О программе",
   "contact": "Контакты",
-  "vibration": "Вибрация"
+  "vibration": "Вибрация",
+  "author": "Автор",
+  "language": "Язык"
 }

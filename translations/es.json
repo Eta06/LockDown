@@ -6,5 +6,7 @@
   "modules": "Módulos",
   "about": "Acerca de",
   "contact": "Contacto",
-  "vibration": "Vibración"
+  "vibration": "Vibración",
+  "author": "Autor",
+  "language": "Idioma"
 }

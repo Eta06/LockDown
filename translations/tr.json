@@ -6,5 +6,7 @@
   "modules": "Modüller",
   "about": "Hakkında",
   "contact": "İletişim",
-  "vibration": "Titreşim"
+  "vibration": "Titreşim",
+  "author": "Yazar",
+  "language": "Dil"
 }

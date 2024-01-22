@@ -9,12 +9,14 @@
         console.log('%c LockDown\n', 'font-weight: bold; font-size: 50px; color: red; text-shadow: 0px 3px 3px rgb(217,31,38), 0px 6px 6px rgb(226,91,14), 0px 9px 9px rgb(245,221,8), 0px 12px 12px rgb(5,148,68), 0px 15px 15px rgb(2,135,206), 0px 18px 18px rgb(4,77,145), 0px 21px 21px rgb(42,21,113)');
         console.log('%c  Web UI\n', 'font-weight: bold; font-size: 50px; color: red; text-shadow: 0px 3px 3px rgb(217,31,38), 0px 6px 6px rgb(226,91,14), 0px 9px 9px rgb(245,221,8), 0px 12px 12px rgb(5,148,68), 0px 15px 15px rgb(2,135,206), 0px 18px 18px rgb(4,77,145), 0px 21px 21px rgb(42,21,113)');
         console.error("============================================");
-        console.log('%c Version: {{ version }}\n', 'font-weight: bold; font-size: 20px');
-        console.log('%c Author: {{ author }}\n', 'font-weight: bold; font-size: 20px');
-        console.log('%c Language: {{ language }}\n', 'font-weight: bold; font-size: 20px');
+        console.log('%c {{ language_files.version }}: {{ version }}\n', 'font-weight: bold; font-size: 20px');
+        console.log('%c {{ language_files.author }}: {{ author }}\n', 'font-weight: bold; font-size: 20px');
+        console.log('%c {{ language_files.language }}: {{ language }}\n', 'font-weight: bold; font-size: 20px');
         console.warn(
-            "This is the web UI for LockDown.\n" +
+            "This is the web UI for LockDown App.\n" +
             "It is currently under development.\n" +
+            "Some features may not work as expected.\n" +
+            "Feel free to report any bugs you find.\n" +
             "Thank you for your patience."
         );
     </script>
