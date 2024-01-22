@@ -35,8 +35,8 @@
                 opacity: 0;
             }
         }
-        .main-screen{
-            transition: opacity 1s;
+        .main-screen {
+            transition: opacity 1s ease-in-out;
         }
         html {
             height: 100%;
@@ -137,6 +137,7 @@
             cursor: pointer;
             font-weight: bold;
             transition: 0.4s;
+            font-family: 'Lucida Grande', Arial, sans-serif;
         }
 
         .tab.active {
@@ -167,13 +168,22 @@
             font-weight: bold;
             border-radius: 15px;
             transition: 0.4s;
+            font-family: 'Lucida Grande', Arial, sans-serif;
         }
 
         .footer-tab.active {
             background-color: #fff;
-            border-bottom: 5px solid #F25D5D; /* Match accent color */
+            border-bottom: 4px solid #F25D5D; /* Match accent color */
             transition: 0.4s;
         }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        .fade-out {
+            animation: fadeOut 1s ease-in-out forwards;
+        }
+
     </style>
 </head>
 <body>
@@ -185,33 +195,38 @@
 </center>
 <center class="main-screen">
         <div class="main-div">
-            <div class="tabs">
+            <div class="tabs" style="
+                    white-space: nowrap;
+                    margin-bottom: 0;
+                ">
                 <div class="tab active" data-tab="home">{{ language_files.home }}</div>
                 <div class="tab" data-tab="modules">{{ language_files.modules }}</div>
                 <div class="tab" data-tab="settings">{{ language_files.settings }}</div>
             </div>
-
             <div class="tab-content active" id="home">
-                </div>
+                <h1>{{ language_files.home }}</h1>
+                <p>{{ language_files.home_text }}</p>
+                <button id="submit-button" onclick="window.location.href='/lockdown'">{{ language_files.home_button }}</button>
+            </div>
             <div class="tab-content" id="modules">
                 </div>
+
             <div class="tab-content" id="settings">
                 </div>
+
         </div>
     </center>
     <center>
         <div class="footer-div" style="right: -10px; left:-10px;">
             <p class="version-text">{{ language_files.version }} {{ version }}</p>
             <div class="footer-tabs">
-                <div class="footer-tab" data-tab="about">{{ language_files.about }}</div>
-                <!--- github icon button -->
-                <div class="footer-tab" data-tab="github" style="padding: 0; height: 38px; border-radius: 20px; background-color: transparent"><a href="https://github.com/Eta06" target="_blank">
+                <div class="footer-tab" onclick="window.location.href='/about'">{{ language_files.about }}</div>
+                <div class="footer-tab" style="padding: 0; height: 38px; border-radius: 20px; background-color: transparent"><a href="https://github.com/Eta06" target="_blank">
                     <img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub" width="38" height="38" style="filter: invert(100%)">
                 </a>
                 </div>
-                <div class="footer-tab" data-tab="contact">{{ language_files.contact }}</div>
+                <div class="footer-tab" onclick="window.location.href='/contact'">{{ language_files.contact }}</div>
             </div>
-
         </div>
     </center>
     <script>
@@ -232,6 +247,7 @@
                 const tabContents = document.querySelectorAll('.tab-content');
                 tabContents.forEach(content => content.classList.remove('active'));
                 document.getElementById(tabId).classList.add('active');
+                document.getElementById(tabId).classList.add('fade-in');
             });
         });
 
@@ -241,12 +257,14 @@
                 clearActiveTabs();
                 footerTabs.forEach(footerTab => footerTab.classList.remove('active'));
                 footerTab.classList.add('active');
-                console.log(footerTab.dataset.tab);
+
+                // Removed content-related parts:
+                // console.log(footerTab.dataset.tab);
                 navigator.vibrate([10, 40, 10]);
-                const footerTabId = footerTab.dataset.tab;
-                const footerTabContents = document.querySelectorAll('.footer-tab-content');
-                footerTabContents.forEach(content => content.classList.remove('active'));
-                document.getElementById(footerTabId).classList.add('active');
+                // const footerTabId = footerTab.dataset.tab;
+                // const footerTabContents = document.querySelectorAll('.footer-tab-content');
+                // footerTabContents.forEach(content => content.classList.remove('active'));
+                // document.getElementById(footerTabId).classList.add('active');
             });
         });
     </script>
