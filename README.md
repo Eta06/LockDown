@@ -38,7 +38,7 @@ LockDown is licensed under the [Apache License 2.0](https://github.com/Eta06/Loc
 
 ## Contact
 
-For any inquiries, please contact us at [link to contact page].
+For any inquiries, please contact me at [emrtnhalim@gmail.com](mailto:emrtnhalim@gmail.com?subject=GitHub%2FEta06%20-%20LockDown%20(Contact)).
 
 ## Social Media
 
