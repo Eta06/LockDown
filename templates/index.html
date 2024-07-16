@@ -137,12 +137,13 @@
         .tab {
             padding: 10px 20px;
             border: 1px solid #ffffff;
-            border-bottom: none;
+            border-radius: 0 0 20px 20px;
             background-color: #ffffff;
             cursor: pointer;
             font-weight: bold;
             transition: 0.4s;
             font-family: 'Lucida Grande', Arial, sans-serif;
+
         }
 
         .tab.active {
@@ -216,6 +217,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: 0.4s;
+            margin-bottom: 20px;
         }
 
         .reset-card button:hover {
@@ -258,6 +260,12 @@
             justify-content: center;
             width: 80%;
         }
+
+        @media (max-width: 768px) { /* Adjust the breakpoint as needed */
+            .tabs {
+                width: 90%; /* Set the width to 90% on mobile devices */
+            }
+        }
     </style>
 </head>
 <body>
@@ -269,6 +277,7 @@
 </center>
 <center class="main-screen">
         <div class="main-div">
+            <center>
             <div class="tabs" style="
                     white-space: nowrap;
                     margin-bottom: 0;
@@ -277,10 +286,11 @@
                 <div class="tab" data-tab="modules">{{ language_files.modules }}</div>
                 <div class="tab" data-tab="settings">{{ language_files.settings }}</div>
             </div>
+                </center>
             <div class="tab-content active" id="home">
                 <h1>{{ language_files.home }}</h1>
                 <p>{{ language_files.home_text }}</p>
-                <button id="submit-button" onclick="window.location.href='/lockdown'">{{ language_files.home_button }}</button>
+                <button class=" " id="submit-button" onclick="window.location.href='/lockdown'">{{ language_files.home_button }}</button>
             </div>
             <div class="tab-content" id="modules">
                 </div>
@@ -292,8 +302,9 @@
                         <label>
                             <select name="language">
                                 <option value="en">English</option>
-                                <option value="es">Spanish</option>
                                 <option value="tr">Turkish</option>
+                                <option value="es">Spanish</option>
+                                <option value="ru">Russian</option>
                             </select>
                         </label>
                         <button id="save-language">{{ language_files.save }}</button>
@@ -301,9 +312,7 @@
                     <div class="settings-card reset-card">
                         <h3>{{ language_files.reset }}</h3>
                         <p>{{ language_files.resetinfo }}</p>
-                        <span class="confirm-buttons">
-                            <button id="confirm-reset">{{ language_files.reset }}</button>
-                        </span>
+                        <button id="confirm-reset">{{ language_files.reset }}</button>
                     </div>
                 </cardwidget>
             </div>

@@ -44,27 +44,10 @@ def reset_everything():
     return redirect(url_for("index"))
 
 
-
-
-@app.route("/about")
-def about():
-    if language == "":
-        return render_template("language.html", version=version, language=language, author=author)
-    return render_template("about.html", version=version, language=language, author=author, language_files=language_files)
-
-
-@app.route("/settings")
-def settings():
-    if language == "":
-        return render_template("language.html", version=version, language=language, author=author)
-    return render_template("settings.html", version=version, language=language, author=author)
-
-
 @app.route("/")
 def index():
     if language == "":
         return render_template("language.html", version=version, language=language, author=author)
-    print(language_files)
     return render_template("index.html", version=version, language=language, author=author, language_files=language_files)
 
 

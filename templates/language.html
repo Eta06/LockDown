@@ -45,6 +45,7 @@
         });
 
         document.addEventListener("click", (event) => {
+            navigator.vibrate([10, 40, 10]);
             if (event.target.id === "submit-button") {
                 const mainScreen = document.querySelector(".main-screen");
                 // keep the animations last frame with fill mode
