@@ -15,6 +15,8 @@
   "reset": "Reset",
   "yesreset": "Yes, reset!",
   "areyousure": "Are you sure?",
+  "port": "Server Port",
+  "portinfo": "Port number to use for the application",
   "irreversibleAction": "This action cannot be undone!",
   "resetinfo": "Are you sure you want to reset all settings?",
   "infotext1": "This is the web UI for LockDown App.",

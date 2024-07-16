@@ -1,16 +1,16 @@
 # Description: Main file for the LockDown project
 import webbrowser
 from flask import Flask, render_template, request, redirect, url_for
-from modules.config import readAppConfig, updateAppConfig, loadLanguageFiles
+from modules.config import readAppConfig, updateAppConfig, loadLanguageFiles, tryLoad
 
 
 app = Flask(__name__)
 appcfg = readAppConfig()
-language = appcfg["app_language"]
+language = tryLoad("app_language")
 language_files = loadLanguageFiles(language)
-print(language_files)
-version = appcfg["app_version"]
-author = appcfg["app_author"]
+version = tryLoad("app_version")
+author = tryLoad("app_author")
+port = tryLoad("app_port")
 
 
 @app.route("/set_language", methods=["POST"])
@@ -38,6 +38,7 @@ def reset_everything():
 
     appcfg["app_language"] = ""
     updateAppConfig("app_language", "")
+    updateAppConfig("app_port", "4900")
     language_files = loadLanguageFiles("")
     language = ""
 
@@ -57,6 +58,8 @@ def status():
 
 
 if __name__ == "__main__":
-    webbrowser.open("http://localhost:4900/")
-    app.run(debug=True, port=4900, host="0.0.0.0")
+    appcfg = readAppConfig()
+    app_port = tryLoad("app_port")
+    webbrowser.open("http://localhost:" + str(app_port))
+    app.run(debug=True, port=app_port, host="0.0.0.0")
 

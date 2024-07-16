@@ -15,6 +15,8 @@
   "reset": "Restablecer",
   "yesreset": "Si, restablecer!",
   "areyousure": "¿Está seguro?",
+  "port": "Puerto del servidor",
+  "portinfo": "Número de puerto para usar la aplicación",
   "irreversibleAction": "Esta acción no se puede deshacer!",
   "resetinfo": "¿Está seguro de que desea restablecer todas las configuraciones?",
   "infotext1": "Esta es la interfaz web de la aplicación LockDown.",

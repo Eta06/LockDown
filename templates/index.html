@@ -154,6 +154,7 @@
 
         .tab-content {
             display: none;
+            padding: 10px;
         }
 
         .tab-content.active {
@@ -192,6 +193,9 @@
         }
 
         .settings-card {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
             max-width: 550px;
             width: 70%;
             margin: 10px auto;
@@ -209,7 +213,11 @@
             border-radius: 5px;
         }
 
-        .reset-card button {
+        .click-buttons:hover {
+            background-color: #7a3131;
+        }
+
+        .click-buttons {
             background-color: #F25D5D;
             color: #fff;
             padding: 5px 10px;
@@ -220,12 +228,8 @@
             margin-bottom: 20px;
         }
 
-        .reset-card button:hover {
-            background-color: #7a3131;
-        }
-
         .reset-card p {
-            margin-top: 10px;
+            margin: 0 0 20px 0;
             font-size: 14px;
         }
 
@@ -265,6 +269,9 @@
             .tabs {
                 width: 90%; /* Set the width to 90% on mobile devices */
             }
+            .settings-card{
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -300,19 +307,24 @@
                     <div class="settings-card language-card">
                         <h3>{{ language_files.language }}</h3>
                         <label>
-                            <select name="language">
+                            <select name="language" style="margin-bottom: 10px;">
                                 <option value="en">English</option>
                                 <option value="tr">Turkish</option>
                                 <option value="es">Spanish</option>
                                 <option value="ru">Russian</option>
                             </select>
                         </label>
-                        <button id="save-language">{{ language_files.save }}</button>
+                        <button class="click-buttons" id="save-language">{{ language_files.save }}</button>
                     </div>
                     <div class="settings-card reset-card">
                         <h3>{{ language_files.reset }}</h3>
                         <p>{{ language_files.resetinfo }}</p>
-                        <button id="confirm-reset">{{ language_files.reset }}</button>
+                        <button class="click-buttons" id="confirm-reset">{{ language_files.reset }}</button>
+                    </div>
+                    <div class="settings-card">
+                        <h3>{{ language_files.port }}</h3>
+                        <p>{{ language_files.portinfo }}</p>
+                        <input type="number" name="port" value="{{ port }}" min="1" max="65535" step="1">
                     </div>
                 </cardwidget>
             </div>
