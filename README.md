@@ -1,6 +1,6 @@
 # LockDown 🔒
 
-<center><img src="static/images/icon.png" alt="LockDown Logo" width="100" height="100"></center>
+<img src="static/images/icon.png" alt="LockDown Logo" width="100" height="100">
 
 ## Introduction
 
@@ -10,7 +10,6 @@ LockDown is a powerful and versatile application designed to enhance security an
 * **App Management:** Control which applications can be accessed and used.
 * **Network Monitoring:** Monitor and restrict network activity to protect your data.
 * **Parental Controls:** Set limits and restrictions for children's device usage.
-* **Data Encryption:** Encrypt sensitive data to safeguard it from prying eyes.
 
 ## Features
 
@@ -29,21 +28,13 @@ LockDown is a powerful and versatile application designed to enhance security an
 5. **Configure Settings:** Customize LockDown's settings to your liking.
 6. **Enable Security Features:** Activate the desired security features to enhance your device's protection.
 
-## Documentation
-
-For detailed information on LockDown's features, settings, and usage, please refer to the official documentation: [link to documentation page].
-
-## Support
-
-If you encounter any issues or have questions, please contact our support team at [link to support page].
-
 ## Contributing
 
 We welcome contributions from the community! If you'd like to contribute to LockDown's development, please visit our GitHub repository: [https://github.com/Eta06/LockDown](https://github.com/Eta06/LockDown).
 
 ## License
 
-LockDown is licensed under the [link to license page]. You can find the license file [here](LICENSE).
+LockDown is licensed under the [Apache License 2.0](https://github.com/Eta06/LockDown/LICENSE). You can find the license file [here](LICENSE).
 
 ## Contact
 
@@ -51,12 +42,8 @@ For any inquiries, please contact us at [link to contact page].
 
 ## Social Media
 
-Follow us on social media for updates and news:
+Follow me on social media for updates and news:
 
-* **Twitter:** [link to Twitter page]
-* **Facebook:** [link to Facebook page]
-* **LinkedIn:** [link to LinkedIn page]
+* **LinkedIn:** [Emir Tunahan Alim on LinkedIn](www.linkedin.com/in/emirta)
 
 ---
-
-**Note:** Replace the placeholders in square brackets with the actual links and information.
