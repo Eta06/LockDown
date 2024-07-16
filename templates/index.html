@@ -42,6 +42,7 @@
         }
         .main-screen {
             transition: opacity 1s ease-in-out;
+            height: 70vh;
         }
         html {
             height: 100%;
@@ -50,6 +51,8 @@
         body{
             background-color: #212121; /* Bold and Energetic background */
             margin: 0;
+            display: flex;
+            flex-direction: column;
         }
         h1 {
             transition: opacity 1s;
@@ -85,9 +88,10 @@
         .footer-div {
             position: fixed;
             bottom: 0;
+            height: 10vh;
             width: 100%;
             text-align: center;
-            background-color: rgba(21, 102, 192, 0.09); /* Match header for consistency */
+            background-color: rgb(32, 50, 70); /* Match header for consistency */
             padding: 10px;
         }
 
@@ -206,7 +210,8 @@
             height: 100px;
         }
 
-        .language-card select {
+        .port-number,
+        .language-card select{
             width: 100%;
             padding: 5px;
             border: 1px solid #ddd;
@@ -258,11 +263,14 @@
             color: #000000; /* Bold and Energetic text */
         }
 
-        cardwidget {
+        .cardwidget {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             width: 80%;
+            overflow-y: scroll;
+            height: 100%;
+            max-height: calc(70vh - 80px); /* Limit height based on viewport and spacing */
         }
 
         @media (max-width: 768px) { /* Adjust the breakpoint as needed */
@@ -270,9 +278,41 @@
                 width: 90%; /* Set the width to 90% on mobile devices */
             }
             .settings-card{
-                width: 90%;
+                width: 100%;
+                height: 120px;
             }
         }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Scrollbar Styling for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(33, 33, 33, 0.8); /* Track background with some transparency */
+    border-radius: 8px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F25D5D; /* Thumb background color */
+    border-radius: 8px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #993d3d; /* Slightly darker shade for hover */
+}
+
+
+/* Scrollbar Styling for Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #F25D5D rgba(33, 33, 33, 0.8);
+}
     </style>
 </head>
 <body>
@@ -303,7 +343,7 @@
                 </div>
 
             <div class="tab-content" id="settings">
-                <cardwidget>
+                <div class="cardwidget" >
                     <div class="settings-card language-card">
                         <h3>{{ language_files.language }}</h3>
                         <label>
@@ -316,35 +356,35 @@
                         </label>
                         <button class="click-buttons" id="save-language">{{ language_files.save }}</button>
                     </div>
+                    <div class="settings-card" style="align-items: center;">
+                        <h3>{{ language_files.port }}</h3>
+                        <input style="width: 98%; margin-bottom: 10px" class="port-number" inputmode="numeric" type="number" name="port" value="{{ port }}" min="1" max="65535" placeholder="{{ language_files.portinfo }}">
+                        <button class="click-buttons" id="save-port" style="width: 100%">{{ language_files.save }}</button>
+                    </div>
                     <div class="settings-card reset-card">
                         <h3>{{ language_files.reset }}</h3>
                         <p>{{ language_files.resetinfo }}</p>
                         <button class="click-buttons" id="confirm-reset">{{ language_files.reset }}</button>
                     </div>
-                    <div class="settings-card">
-                        <h3>{{ language_files.port }}</h3>
-                        <p>{{ language_files.portinfo }}</p>
-                        <input type="number" name="port" value="{{ port }}" min="1" max="65535" step="1">
-                    </div>
-                </cardwidget>
+
+                </div>
             </div>
 
         </div>
     </center>
-    <center>
-        <div class="footer-div" style="right: -10px; left:-10px;">
-            <p class="version-text">{{ language_files.version }} {{ version }}</p>
-            <div class="footer-tabs">
-                <div style="display:none;" class="footer-tab" onclick="window.location.href='/about'">{{ language_files.about }}</div>
-                <div class="footer-tab" style="padding: 0; height: 38px; border-radius: 20px; background-color: transparent"><a href="https://github.com/Eta06" target="_blank">
-                    <img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub" width="38" height="38" style="filter: invert(100%)">
-                </a>
-                </div>
-                <div style="display:none;" class="footer-tab" onclick="window.location.href='/contact'">{{ language_files.contact }}</div>
-            </div>
+<div class="footer-div" style="text-align: center;">
+    <p class="version-text">{{ language_files.version }} {{ version }}</p>
+    <div class="footer-tabs">
+        <div style="display:none;" class="footer-tab" onclick="window.location.href='/about'">{{ language_files.about }}</div>
+        <div class="footer-tab" style="padding: 0; height: 38px; border-radius: 20px; background-color: transparent"><a href="https://github.com/Eta06/LockDown" target="_blank">
+            <img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub" width="38" height="38" style="filter: invert(100%)">
+        </a>
         </div>
-    </center>
-    <script>
+        <div style="display:none;" class="footer-tab" onclick="window.location.href='/contact'">{{ language_files.contact }}</div>
+    </div>
+</div>
+
+<script>
 
         // on language save add listener to the save button
         document.getElementById("save-language").addEventListener("click", function () {
@@ -398,6 +438,29 @@
 });
 });
 
+        // save the port number
+        document.getElementById("save-port").addEventListener("click", function (){
+            const port = document.querySelector('input[name="port"]').value;
+            // save the port number
+            fetch('/set_port', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'port=' + port
+            })
+            const domain = window.location.hostname;
+            const url = `http://${domain}:${port}`;
+            Swal.fire({
+                title: "{{ language_files.portchanged }}",
+                timeout: 3000,
+                icon: "success",
+                showCancelButton: false,
+        })
+                setTimeout(function () {
+                window.location.href = url;
+            }, 2000)
+        })
 
         function clearActiveTabs() {
             tabs.forEach(tab => tab.classList.remove('active'));
@@ -435,6 +498,6 @@
                 // document.getElementById(footerTabId).classList.add('active');
             });
         });
-    </script>
+</script>
 </body>
 </html>

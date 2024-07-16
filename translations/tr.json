@@ -17,6 +17,7 @@
   "areyousure": "Emin misiniz?",
   "port": "Sunucu Portu",
   "portinfo": "Uygulama için kullanılacak port numarasıdır. Varsayılan: 4900",
+  "portchanged": "Port numarası değiştirildi!",
   "irreversibleAction": "Bu işlem geri alınamaz!",
   "resetinfo": "Tüm ayarları sıfırlamak istediğinizden emin misiniz?",
   "infotext1": "Bu, LockDown uygulamasının web arayüzüdür.",

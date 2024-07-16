@@ -8,6 +8,8 @@ def tryLoad(key):
         data = appcfg[key]
     except:
         data = getDefaultConfig()[key]
+        # Fix the missing key on the config file and update it.
+        updateAppConfig(key, data)
     return data
 
 
