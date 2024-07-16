@@ -34,7 +34,7 @@ We welcome contributions from the community! If you'd like to contribute to Lock
 
 ## License
 
-LockDown is licensed under the [MIT License](https://github.com/Eta06/LockDown/LICENSE). You can find the license file [here](LICENSE).
+LockDown is licensed under the [Apache License 2.0](https://github.com/Eta06/LockDown/LICENSE). You can find the license file [here](LICENSE).
 
 ## Contact
 
