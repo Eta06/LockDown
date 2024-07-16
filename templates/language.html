@@ -47,7 +47,9 @@
         document.addEventListener("click", (event) => {
             if (event.target.id === "submit-button") {
                 const mainScreen = document.querySelector(".main-screen");
-                mainScreen.style.animation = "fadeOut 1s";
+                // keep the animations last frame with fill mode
+                mainScreen.style.animation = "fadeOut 1s ease-in-out forwards ";
+
             }
         });
 

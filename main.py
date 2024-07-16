@@ -31,6 +31,35 @@ def set_language():
     return redirect(url_for("index"))
 
 
+@app.route("/reset_everything", methods=["POST"])
+def reset_everything():
+    global language
+    global language_files
+
+    appcfg["app_language"] = ""
+    updateAppConfig("app_language", "")
+    language_files = loadLanguageFiles("")
+    language = ""
+
+    return redirect(url_for("index"))
+
+
+
+
+@app.route("/about")
+def about():
+    if language == "":
+        return render_template("language.html", version=version, language=language, author=author)
+    return render_template("about.html", version=version, language=language, author=author, language_files=language_files)
+
+
+@app.route("/settings")
+def settings():
+    if language == "":
+        return render_template("language.html", version=version, language=language, author=author)
+    return render_template("settings.html", version=version, language=language, author=author)
+
+
 @app.route("/")
 def index():
     if language == "":
@@ -45,6 +74,6 @@ def status():
 
 
 if __name__ == "__main__":
-    webbrowser.open("http://192.168.1.230:4900/")
+    webbrowser.open("http://localhost:4900/")
     app.run(debug=True, port=4900, host="0.0.0.0")
 
