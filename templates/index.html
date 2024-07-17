@@ -5,24 +5,9 @@
     <meta charset="UTF-8">
     <title>LockDown - Web UI</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.png') }}">
-    <!-- Add the sweetalert from js folder -->
     <script src="{{ url_for('static', filename='js/sweetalert2@11.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/message.js') }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        console.log('%c LockDown\n', 'font-weight: bold; font-size: 50px; color: red; text-shadow: 0px 3px 3px rgb(217,31,38), 0px 6px 6px rgb(226,91,14), 0px 9px 9px rgb(245,221,8), 0px 12px 12px rgb(5,148,68), 0px 15px 15px rgb(2,135,206), 0px 18px 18px rgb(4,77,145), 0px 21px 21px rgb(42,21,113)');
-        console.log('%c  Web UI\n', 'font-weight: bold; font-size: 50px; color: red; text-shadow: 0px 3px 3px rgb(217,31,38), 0px 6px 6px rgb(226,91,14), 0px 9px 9px rgb(245,221,8), 0px 12px 12px rgb(5,148,68), 0px 15px 15px rgb(2,135,206), 0px 18px 18px rgb(4,77,145), 0px 21px 21px rgb(42,21,113)');
-        console.error("============================================");
-        console.log('%c {{ language_files.version }}: {{ version }}\n', 'font-weight: bold; font-size: 20px');
-        console.log('%c {{ language_files.author }}: {{ author }}\n', 'font-weight: bold; font-size: 20px');
-        console.log('%c {{ language_files.language }}: {{ language }}\n', 'font-weight: bold; font-size: 20px');
-        console.warn(
-            "{{ language_files.infotext1 }}\n" +
-            "{{ language_files.infotext2 }}\n" +
-            "{{ language_files.infotext3 }}\n" +
-            "{{ language_files.infotext4 }}\n" +
-            "{{ language_files.infotext5 }}"
-        );
-    </script>
     <style>
         @keyframes fadeIn {
             from {
@@ -441,6 +426,14 @@
         // save the port number
         document.getElementById("save-port").addEventListener("click", function (){
             const port = document.querySelector('input[name="port"]').value;
+            if (port === "") {
+                Swal.fire({
+                    title: "{{ language_files.porterror }}",
+                    icon: "error",
+                    showCancelButton: false,
+                })
+                return;
+            }
             // save the port number
             fetch('/set_port', {
                 method: 'POST',
@@ -498,6 +491,25 @@
                 // document.getElementById(footerTabId).classList.add('active');
             });
         });
+        if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        const swScript = document.getElementById('sw-script').textContent;
+
+        // Create a Blob from the script content
+        const blob = new Blob([swScript], { type: 'application/javascript' });
+
+        // Create a URL for the Blob
+        const swUrl = URL.createObjectURL(blob);
+
+        navigator.serviceWorker.register(swUrl)
+          .then(registration => {
+            console.log('Service Worker registered:', registration);
+          })
+          .catch(error => {
+            console.log('Service Worker registration failed:', error);
+          });
+      });
+    }
 </script>
 </body>
 </html>

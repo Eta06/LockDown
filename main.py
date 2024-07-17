@@ -28,6 +28,14 @@ def restart_server():
         os.execl(python, python, *sys.argv)
 
 
+@app.route("/language_data")
+def get_language_data():
+    return {
+        "lang": language_files,
+        "config": appcfg
+    }
+
+
 @app.route("/set_language", methods=["POST"])
 def set_language():
     import time

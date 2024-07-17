@@ -16,6 +16,7 @@
   "yesreset": "Si, restablecer!",
   "areyousure": "¿Está seguro?",
   "port": "Puerto del servidor",
+  "porterror": "Número de puerto inválido",
   "portinfo": "Número de puerto para utilizar la aplicación. Por defecto: 4900",
   "portchanged": "Número de puerto cambiado!",
   "irreversibleAction": "Esta acción no se puede deshacer!",

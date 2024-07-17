@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>You're Offline</title>
+  <style>
+    /* Basic Offline Page Styling (customize as needed) */
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff; /* Blue */
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Oops! You're offline.</h1>
+  <p>We'll try to reconnect automatically when you're back online.</p>
+  <p>If this persists, please start your server again or check for the correct port.</p>
+  <button onclick="tryReconnect()">Try Reconnecting</button>
+
+  <script>
+    function tryReconnect() {
+      if (navigator.onLine) {
+        location.reload(); // Reload if back online
+      } else {
+        setTimeout(tryReconnect, 3000); // Retry in 3 seconds
+      }
+    }
+
+    tryReconnect(); // Initial check
+  </script>
+</body>
+</html>

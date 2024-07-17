@@ -16,6 +16,7 @@
   "yesreset": "Evet, sıfırla!",
   "areyousure": "Emin misiniz?",
   "port": "Sunucu Portu",
+  "porterror": "Geçersiz Port",
   "portinfo": "Uygulama için kullanılacak port numarasıdır. Varsayılan: 4900",
   "portchanged": "Port numarası değiştirildi!",
   "irreversibleAction": "Bu işlem geri alınamaz!",

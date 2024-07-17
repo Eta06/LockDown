@@ -16,6 +16,7 @@
   "yesreset": "Yes, reset!",
   "areyousure": "Are you sure?",
   "port": "Server Port",
+  "porterror": "Invalid Port",
   "portinfo": "Port number to use for the application. Default: 4900",
   "portchanged": "Port number changed!",
   "irreversibleAction": "This action cannot be undone!",
