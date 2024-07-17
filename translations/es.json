@@ -17,6 +17,7 @@
   "areyousure": "¿Está seguro?",
   "port": "Puerto del servidor",
   "porterror": "Número de puerto inválido",
+  "missingtranslations": "Se encontraron traducciones faltantes en los archivos de la aplicación. Es posible que el sistema no funcione como se espera.",
   "portinfo": "Número de puerto para utilizar la aplicación. Por defecto: 4900",
   "portchanged": "Número de puerto cambiado!",
   "irreversibleAction": "Esta acción no se puede deshacer!",

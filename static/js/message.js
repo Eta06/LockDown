@@ -12,9 +12,9 @@ fetch('/language_data')
     console.error("============================================");
 
     // Output app config data
-    console.log('%cVersion: ' + app_files.version, 'font-weight: bold; font-size: 20px');
-    console.log('%cAuthor: ' + app_files.author, 'font-weight: bold; font-size: 20px');
-    console.log('%cLanguage: ' + app_files.language, 'font-weight: bold; font-size: 20px');
+    console.log('%cVersion: ' + app_files.config.app_version, 'font-weight: bold; font-size: 20px');
+    console.log('%cAuthor: ' + app_files.config.app_author, 'font-weight: bold; font-size: 20px');
+    console.log('%cLanguage: ' + app_files.config.app_language, 'font-weight: bold; font-size: 20px');
 
     // Check if infotext properties exist before logging
     if (app_files.lang.infotext1 && app_files.lang.infotext2 && app_files.lang.infotext3 && app_files.lang.infotext4 && app_files.lang.infotext5) {
@@ -26,7 +26,7 @@ fetch('/language_data')
         app_files.lang.infotext5
       );
     } else {
-      console.warn("Some infotext properties are missing in the language data.");
+      console.warn(app_files.lang.missingtranslations);
     }
   })
   .catch(error => {

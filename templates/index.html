@@ -275,7 +275,7 @@
 
         /* Scrollbar Styling for Webkit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 10px; /* Width of the scrollbar thumb */
+    width: 16px;
 }
 
 ::-webkit-scrollbar-track {
@@ -285,7 +285,9 @@
 
 ::-webkit-scrollbar-thumb {
     background: #F25D5D; /* Thumb background color */
-    border-radius: 8px; /* Rounded corners for the thumb */
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -466,7 +468,6 @@
                 clearActiveTabs();
                 tabs.forEach(tab => tab.classList.remove('active'));
                 tab.classList.add('active');
-                console.log(tab.dataset.tab);
                 navigator.vibrate([10, 30, 10]);
                 const tabId = tab.dataset.tab;
                 const tabContents = document.querySelectorAll('.tab-content');

@@ -1,12 +1,8 @@
 # Description: Main file for the LockDown project
 import os
-import io
-import webbrowser
 from flask import Flask, render_template, request, redirect, url_for
 from modules.config import readAppConfig, updateAppConfig, loadLanguageFiles, tryLoad
-
 import sys
-import subprocess
 
 app = Flask(__name__)
 appcfg = readAppConfig()
