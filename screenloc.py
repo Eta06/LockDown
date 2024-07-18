@@ -1,5 +1,4 @@
 from PyQt5 import uic, QtCore, QtWidgets
-import cryptography.fernet
 import requests
 import platform
 import socket
@@ -23,6 +22,7 @@ except requests.exceptions.RequestException as e:
 
 def save_new_client():
     # Generate a key for the client
+
 
 
 def report_client_to_server(client_token):

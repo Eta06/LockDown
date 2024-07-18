@@ -1,6 +1,7 @@
 # Description: Main file for the LockDown project
 import os
 from flask import Flask, render_template, request, redirect, url_for
+from werkzeug.exceptions import Forbidden
 from modules.config import readAppConfig, updateAppConfig, loadLanguageFiles, tryLoad
 import sys
 
@@ -11,6 +12,14 @@ language_files = loadLanguageFiles(language)
 version = tryLoad("app_version")
 author = tryLoad("app_author")
 port = tryLoad("app_port")
+
+restricted_routes = ["/set_language", "/reset_everything", "/set_port", "/"]  # Add the routes you want to restrict
+
+
+@app.before_request
+def restrict_access():
+    if request.path in restricted_routes and request.remote_addr != "127.0.0.1":
+        raise Forbidden("Access to this route is limited to localhost.")
 
 
 def restart_server():
