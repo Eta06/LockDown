@@ -1,0 +1,128 @@
+@keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        .main-screen{
+            transition: opacity 1s;
+        }
+        html {
+          height: 100%;
+            animation: fadeIn 1s;
+            transition: opacity 1s;
+        }
+        body{
+            background-color: #212121; /* Bold and Energetic background */
+            margin: 0;
+        }
+        h1 {
+            transition: opacity 1s;
+            opacity: 0;
+            font-size: 40px;
+            font-family: 'Lucida Grande', Arial, sans-serif;
+            font-weight: bolder;
+            color: #FFFFFF; /* Bold and Energetic text */
+            margin-top: 20px;
+        }
+        .header-div {
+            display: flex;  /* Align items horizontally */
+            justify-content: center;  /* Center them within the header */
+            align-items: center;  /* Center them vertically */
+            height: 20vh;
+            background-color: rgba(21, 102, 192, 0.22);
+            border-bottom: 5px solid #F25D5D; /* Bold and Energetic accent */
+        }
+        .main-logo {
+            margin-top: 0;
+            margin-right: 20px;
+            height: 12vh;
+            width: auto;
+        }
+        h2 {
+            font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+            font-weight: bolder;
+            font-size: 50px;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #FFFFFF; /* Bold and Energetic text */
+        }
+        .greeting-text{
+            margin: 0;
+            padding-top: 20px;
+            color: #FFFFFF; /* Bold and Energetic text */
+        }
+        .footer-div {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(21, 102, 192, 0.09); /* Match header for consistency */
+            padding: 10px;
+        }
+
+        .version-text {
+            margin: 0;
+            color: #FFFFFF; /* Bold and Energetic text */
+            font-size: 20px;
+            font-family: 'Lucida Grande', Arial, sans-serif;
+        }
+        .select {
+            color: #FFFFFF; /* Bold and Energetic text */
+            font-size: 20px;
+            font-family: 'Lucida Grande', Arial, sans-serif;
+        }
+        #language-select {
+            width: 250px; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            font-size: 16px; /* Adjust font size as needed */
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px; /* Add spacing between elements */
+            background-color: #FFFFFF;
+            border-color: transparent;
+        }
+
+        #submit-button {
+            width: 250px; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            font-size: 25px; /* Adjust font size as needed */
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px; /* Add spacing between elements */
+            background-color: #F25D5D;
+            transition: 0.4s;
+            color: #FFFFFF
+
+        }
+        #submit-button:hover {
+            width: 250px; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            font-size: 25px; /* Adjust font size as needed */
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px; /* Add spacing between elements */
+            background-color: #7a3131;
+            transition: 0.4s;
+            color: #FFFFFF
+
+        }
+        /* Style the flag emoji within options */
+        #language-select option span.flag-icon {
+            margin-right: 5px; /* Add spacing between flag and text */
+        }
+        #language-select {
+        /* Add any additional styling you need for the select element here */
+    }

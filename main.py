@@ -86,11 +86,6 @@ def index():
                            language_files=language_files, port=port)
 
 
-@app.route("/status")
-def status():
-    return {"app": "LockDown", "status": "OK", "version": version, "language": language, "author": author}
-
-
 if __name__ == "__main__":
     while True:
         appcfg = readAppConfig()

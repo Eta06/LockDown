@@ -2,30 +2,7 @@
 <html>
 <head>
   <title>You're Offline</title>
-  <style>
-    /* Basic Offline Page Styling (customize as needed) */
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
-
-    h1 {
-      color: #333;
-    }
-
-    p {
-      margin-bottom: 20px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #007bff; /* Blue */
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/offline.css') }}" type="text/css">
 </head>
 <body>
   <h1>Oops! You're offline.</h1>
